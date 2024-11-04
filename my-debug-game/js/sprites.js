@@ -6,7 +6,7 @@ class SpriteManager {
 
     loadSprites() {
         // Define the path to the images folder
-        const imagePath = 'images/';
+        const imagePath = 'public/images/';
     
         // Player sprite (IDE/Code Editor)
         this.sprites.player = new Image();
