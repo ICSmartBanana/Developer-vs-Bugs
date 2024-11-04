@@ -44,7 +44,7 @@ class AudioManager {
     playGameOverSound() {
         // Load and play meme sound
         if (!this.memeAudio) {
-            this.memeAudio = new Audio('audio/meme-sound.mp3');
+            this.memeAudio = new Audio('public/audio/meme-sound.mp3');
         }
         this.memeAudio.play();
     }
