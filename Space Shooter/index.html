@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Space Defender</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/gameover.css">
+    <link rel="stylesheet" href="styles/themes.css">
+</head>
+<body>
+    <header>
+        <h1>SPACE DEFENDER</h1>
+        <p class="blink">Press SPACE to start</p>
+    </header>
+
+    <!-- Add this after the header -->
+    <div class="theme-switcher">
+        <label class="switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider"></span>
+        </label>
+        <span id="themeLabel">Retro</span>
+    </div>
+
+    <div class="game-container">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div class="hud">
+            <div>Score: <span id="scoreValue">0</span></div>
+            <div>High Score: <span id="highScoreValue">0</span></div>
+            <div>Ammo: <span id="ammoCount">30</span>/30</div>
+            <div class="ammo-bar">
+                <div id="ammoFill" class="ammo-fill" style="width: 100%"></div>
+            </div>
+            <div id="powerupList" class="powerup-list"></div>
+        </div>
+        <div id="reloadIndicator" class="reload-indicator">RELOADING</div>
+    </div>
+
+    <div class="controls">
+        <button id="newGameBtn" class="retro-button">New Game</button>
+        <button id="historyBtn" class="retro-button">Show History</button>
+    </div>
+
+    <div id="historyPanel" class="history-panel">
+        <h2>Game History</h2>
+        <div id="historyList"></div>
+    </div>
+
+    <!-- Load scripts in correct order -->
+    <script src="scripts/config.js"></script>
+    <script src="scripts/audio.js"></script>
+    <script src="scripts/effects.js"></script>
+    <script src="scripts/gameOverHandler.js"></script>
+    <script src="scripts/gameState.js"></script>
+    <script src="scripts/sprites.js"></script>
+    <script src="scripts/powerups.js"></script>
+    <script src="scripts/enemies.js"></script>
+    <script src="scripts/player.js"></script>
+    <script src="scripts/renderer.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/themeManager.js"></script>
+</body>
+</html>

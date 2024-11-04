@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+    --editor-bg: #1e1e1e;
+    --editor-line: #323233;
+    --keyword-blue: #569cd6;
+    --string-orange: #ce9178;
+    --comment-green: #6a9955;
+    --method-yellow: #dcdcaa;
+}
+
+body {
+    background-color: var(--editor-bg);
+    color: var(--keyword-blue);
+    font-family: 'Consolas', 'Monaco', monospace;
+}
+
+.retro-button {
+    background: var(--editor-line);
+    color: var(--keyword-blue);
+    border: 2px solid var(--keyword-blue);
+    font-family: 'Consolas', 'Monaco', monospace;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.retro-button:hover {
+    background: var(--keyword-blue);
+    color: var(--editor-bg);
+}
+
+.retro-button:active {
+    transform: scale(0.95);
+}
+
+.history-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.95);
+    border: 2px solid var(--neon-green);
+    padding: 30px;
+    min-width: 300px;
+    display: none;
+    box-shadow: 0 0 20px var(--neon-green);
+    animation: panelGlow 2s infinite alternate;
+}
+
+@keyframes panelGlow {
+    from { box-shadow: 0 0 10px var(--neon-green); }
+    to { box-shadow: 0 0 20px var(--neon-green); }
+}
+
+.history-panel.visible {
+    display: block;
+}
+
+.history-panel h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px var(--neon-green);
+}
+
+.history-entry {
+    padding: 10px;
+    margin: 5px 0;
+    border-bottom: 1px solid var(--dark-green);
+    transition: all 0.3s;
+}
+
+.history-entry:hover {
+    background: rgba(0, 255, 0, 0.1);
+}
+
+/* Ad container styles */
+.ad-container {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 600px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid var(--neon-green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px var(--neon-green);
+}
+
+.level-up-message {
+    color: var(--comment-green);
+    font-family: 'Consolas', 'Monaco', monospace;
+    border: 2px solid var(--comment-green);
+}
+
+.level-up-message.visible {
+    opacity: 1;
+    animation: levelUpFloat 2s forwards;
+}
+
+@keyframes levelUpFloat {
+    0% { transform: translate(-50%, -50%); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translate(-50%, -200%); opacity: 0; }
+}
+
+.level-up-message {
+    background: rgba(0, 0, 0, 0.8);
+    color: #0f0;
+    padding: 20px 40px;
+    border: 2px solid #0f0;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 24px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s, transform 0.3s;
+    box-shadow: 0 0 20px #0f0;
+    pointer-events: none;
+}
+
+.level-up-message.visible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: floatUp 2s forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+}
+
+.game-over-screen {
+    background: rgba(30, 30, 30, 0.95);
+}
+
+.game-over-content {
+    background: var(--editor-bg);
+    border: 2px solid var(--keyword-blue);
+    color: var(--keyword-blue);
+    font-family: 'Consolas', 'Monaco', monospace;
+}
+
+.meme-text {
+    color: var(--string-orange);
+}
+
+#levelUpContainer {
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.game-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.game-container {
+    border: 2px solid var(--editor-line);
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(86, 156, 214, 0.5);
+}
+
+
+.ammo-bar {
+    background: var(--editor-line);
+    border: 1px solid var(--keyword-blue);
+}
+
+.ammo-fill {
+    background: var(--keyword-blue);
+}
+
+
+.ad-sidebar {
+    flex: 0 1 300px;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Make sure ads are responsive */
+.adsbygoogle {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+}
+
+@media (max-width: 1200px) {
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ad-sidebar {
+        width: 100%;
+        max-width: 800px;
+        min-height: auto;
+    }
+}
