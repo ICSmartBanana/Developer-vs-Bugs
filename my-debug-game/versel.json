@@ -1,13 +1,15 @@
 {
     "version": 2,
-    "routes": [
+    "builds": [
       {
-        "handle": "filesystem"
-      },
-      {
-        "src": "/images/(.*)",
-        "dest": "/public/images/$1"
+        "src": "public/**/*",
+        "use": "@vercel/static"
       }
     ],
-    "public": true
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/public/$1"
+      }
+    ]
   }
