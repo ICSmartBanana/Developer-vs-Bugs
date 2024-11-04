@@ -1,3 +1,10 @@
+document.addEventListener('click', function initAudio() {
+    if (audioManager && audioManager.context && audioManager.context.state === 'suspended') {
+        audioManager.context.resume();
+    }
+    document.removeEventListener('click', initAudio);
+});
+
 class Game {
     constructor() {
         this.canvas = document.getElementById('gameCanvas');
@@ -19,6 +26,13 @@ class Game {
         
         this.bindEvents();
         this.setupGame();
+
+        // Initialize audio context on first interaction
+        document.addEventListener('click', () => {
+            if (audioManager && audioManager.context) {
+                audioManager.context.resume();
+            }
+        }, { once: true });
     }
 
     setupGame() {
